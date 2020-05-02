@@ -4,14 +4,14 @@ import { render } from '@testing-library/react'
 import Hello from './hello'
 
 test('renders with or without a name', () => {
-  const { getByText, rerender } = render(<Hello />)
-  expect(getByText('Hey, stranger')).toBeInTheDocument()
+  const { container, rerender } = render(<Hello />)
+  expect(container).toHaveTextContent('Hey, stranger')
 
   rerender(<Hello name="Jenny" />)
-  expect(getByText('Hello, Jenny!')).toBeInTheDocument()
+  expect(container).toHaveTextContent('Hello, Jenny!')
 
   rerender(<Hello name="Margaret" />)
-  expect(getByText('Hello, Margaret!')).toBeInTheDocument()
+  expect(container).toHaveTextContent('Hello, Margaret!')
 })
 
 // import React from "react";

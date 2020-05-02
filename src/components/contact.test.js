@@ -25,11 +25,12 @@ test('should render contact information', () => {
     />,
   )
 
-  expect(getByTestId('email').getAttribute('href')).toEqual(
+  expect(getByTestId('email')).toHaveAttribute(
+    'href',
     'mailto:test@example.com',
   )
-  expect(getByTestId('site').getAttribute('href')).toEqual('http://test.com')
-  expect(getByTestId('map').textContent).toEqual('0:0')
+  expect(getByTestId('site')).toHaveAttribute('href', 'http://test.com')
+  expect(getByTestId('map')).toHaveTextContent('0:0')
 })
 
 // import React from "react";

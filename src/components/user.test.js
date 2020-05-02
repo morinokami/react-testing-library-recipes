@@ -22,9 +22,9 @@ test('renders user data', async () => {
   const { container } = render(<User id="123" />)
 
   await waitForElementToBeRemoved(() => screen.getByText('loading...'))
-  expect(container.querySelector('summary').textContent).toBe(fakeUser.name)
-  expect(container.querySelector('strong').textContent).toBe(fakeUser.age)
-  expect(container.textContent).toContain(fakeUser.address)
+  expect(container.querySelector('summary')).toHaveTextContent(fakeUser.name)
+  expect(container.querySelector('strong')).toHaveTextContent(fakeUser.age)
+  expect(container).toHaveTextContent(fakeUser.address)
 })
 
 // import React from "react";

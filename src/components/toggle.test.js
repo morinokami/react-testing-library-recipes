@@ -8,18 +8,18 @@ test('changes value when clicked', () => {
   const { getByTestId } = render(<Toggle onChange={onChange} />)
 
   const button = getByTestId('toggle')
-  expect(button.innerHTML).toBe('Turn on')
+  expect(button).toContainHTML('Turn on')
 
   fireEvent.click(button)
 
   expect(onChange).toHaveBeenCalledTimes(1)
-  expect(button.innerHTML).toBe('Turn off')
+  expect(button).toContainHTML('Turn off')
 
   for (let i = 0; i < 5; i++) {
     fireEvent.click(button)
   }
   expect(onChange).toHaveBeenCalledTimes(6)
-  expect(button.innerHTML).toBe('Turn on')
+  expect(button).toContainHTML('Turn on')
 })
 
 // import React from "react";
